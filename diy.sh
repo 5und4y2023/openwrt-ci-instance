@@ -8,7 +8,7 @@ git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 #安装最新openclash
 rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git  package/openclash
-mv package/openclash/luci-app-openclash feeds/luci/applications/luci-app-openclash
+mv package/openclash/luci-app-openclash feeds/luci/applications/
 rm -rf package/openclash
 
 # 添加其它插件
