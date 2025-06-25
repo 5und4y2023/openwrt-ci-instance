@@ -4,7 +4,7 @@ sed -i 's/192.168.1.1/192.168.23.1/g' package/base-files/luci2/bin/config_genera
 sed -i 's/LEDE/OpenWrt/g' package/base-files/files/bin/config_generate
 sed -i 's/LEDE/OpenWrt/g' package/base-files/luci2/bin/config_generate
 sed -i 's/LEDE/OpenWrt/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-mv $GITHUB_WORKSPACE/patch/lean/199-diy package/base-files/files/etc/uci-defaults/zz-diy
+mv $GITHUB_WORKSPACE/patch/lean/199-n1 package/base-files/files/etc/uci-defaults/zz-n1
 mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 
 if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
