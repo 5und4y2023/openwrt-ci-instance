@@ -13,7 +13,7 @@ env:
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  FIRMWARE_RELEASE: false
+  FIRMWARE_RELEASE: true
   FIRMWARE_TAG: lean-n1
   TZ: Asia/Shanghai
 
@@ -160,7 +160,7 @@ jobs:
         body: |
           ### 📒 固件信息
           - 这是基于lean'lede 编译的固件
-          - 💻 这是 x86 平台使用的 OpenWrt-23.05 固件
+          - 💻 这是 n1使用的 OpenWrt 固件
           - ⚽ 固件源码: ${{ env.REPO_URL }}
           - 💝 源码分支: ${{ env.REPO_BRANCH }}
           - 🌐 默认地址: 192.168.23.1
