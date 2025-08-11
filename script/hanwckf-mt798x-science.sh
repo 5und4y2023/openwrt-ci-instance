@@ -1,13 +1,11 @@
 sed -i 's/192.168.1.1/10.3.2.1/g' package/base-files/files/bin/config_generate
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/10.3.2.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 #sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
-#sed -i "s/ImmortalWrt/OpenWrt/g" package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
-# mv $GITHUB_WORKSPACE/patch/hanwckf/mt7986a-netcore-n60pro.dts target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-netcore-n60.dts
-
+#mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 
 mv $GITHUB_WORKSPACE/patch/hanwckf/mtwifi.sh package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 mv $GITHUB_WORKSPACE/patch/hanwckf/199-diy.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
+# mv $GITHUB_WORKSPACE/patch/hanwckf/mt7986a-netcore-n60pro.dts target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-netcore-n60.dts
 
 #完全删除luci版本
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
@@ -16,10 +14,6 @@ sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/usr/
 sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/etc/openwrt_release
 #mv $GITHUB_WORKSPACE/patch/hanwckf/xm-10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
-#定制版补丁
-mv $GITHUB_WORKSPACE/patch/tiktok/hanwckf-mtwifi.sh package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-mv $GITHUB_WORKSPACE/patch/tiktok/1-bgp.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-mv $GITHUB_WORKSPACE/patch/tiktok/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
 #改大闪存
 #sed -i 's/reg = <0x600000 0x6e00000>/reg = <0x600000 0x1ea00000>/' target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-xiaomi-redmi-router-ax6000.dts
@@ -46,13 +40,7 @@ git clone --depth 1 https://github.com/vernesong/OpenClash.git  package/openclas
 # git clone --depth 1 https://github.com/fw876/helloworld.git package/helloworld
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
-#mv $GITHUB_WORKSPACE/patch/Makefile package/passwall-packages/xray-core/Makefile
 
-#新版ssr-libev和ss-rust缺少依赖，所以延用旧版，删除新版
-#rm -rf package/passwall-packages/shadowsocks-rust
-#rm -rf package/passwall-packages/shadowsocksr-libev
-#rm -rf package/helloworld/shadowsocks-rust
-#rm -rf package/helloworld/shadowsocksr-libev
 
 #git clone --depth=1 https://github.com/gdy666/luci-app-lucky.git package/luci-app-lucky
 git clone --depth 1 https://github.com/destan19/OpenAppFilter.git package/oaf
