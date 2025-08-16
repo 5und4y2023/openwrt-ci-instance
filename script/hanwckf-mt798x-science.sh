@@ -67,22 +67,22 @@ mv package/small-package/smartdns feeds/packages/net/smartdns
 mv package/small-package/luci-app-ikoolproxy package/luci-app-ikoolproxy
 rm -rf package/small-package
 
-git clone --depth 1 https://github.com/mingxiaoyu/luci-app-phtunnel.git package/phtunnel
+#git clone --depth 1 https://github.com/mingxiaoyu/luci-app-phtunnel.git package/phtunnel
 
 # iStore
 #git clone --depth 1 https://github.com/xiangfeidexiaohuo/extra-ipk.git package/extra-ipk
 #mv package/extra-ipk/linkease package/linkease
 #rm -rf package/extra-ipk
 
-rm -rf feeds/packages/net/frp
-git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/packages package/imm24pkg
-mv package/imm24pkg/net/frp package/frp
-rm -rf package/imm24pkg
+#rm -rf feeds/packages/net/frp
+#git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/packages package/imm24pkg
+#mv package/imm24pkg/net/frp package/frp
+#rm -rf package/imm24pkg
 
-rm -rf feeds/luci/applications/luci-app-frpc
-git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/luci package/imm24luci
-mv package/imm24luci/applications/luci-app-frpc package/luci-app-frpc
-rm -rf package/imm24luci
+#rm -rf feeds/luci/applications/luci-app-frpc
+#git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/luci package/imm24luci
+#mv package/imm24luci/applications/luci-app-frpc package/luci-app-frpc
+#rm -rf package/imm24luci
 
 #git clone --depth 1 https://github.com/coolsnowwolf/lede.git package/lede
 #mv package/lede/package/lean/luci-app-leigod-acc package/luci-app-leigod-acc
