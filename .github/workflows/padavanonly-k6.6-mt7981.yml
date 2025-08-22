@@ -7,7 +7,7 @@ on:
 env:
   REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6.git
   REPO_BRANCH: openwrt-24.10-6.6
-  CONFIG_FILE: config/padavanonly-k6.6-mt7981
+  CONFIG_FILE: config/padavanonly-k6.6-mt7981-2
   DIY_SCRIPT: script/padavanonly-mt798x-24.10.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
@@ -95,6 +95,7 @@ jobs:
       run: |
         cd $OPENWRT_PATH
         sed -i '1i src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git' feeds.conf.default
+        sed -i '1i src-git 5G_Modem https://github.com/Siriling/5G-Modem-Support.git' feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds update -a
