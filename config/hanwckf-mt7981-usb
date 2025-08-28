@@ -265,6 +265,7 @@ CONFIG_first_card_name="MT7981"
 # CONFIG_MTK_RLM_CAL_CACHE_SUPPORT is not set
 # CONFIG_MTK_SNIFFER_RADIOTAP_SUPPORT is not set
 
+CONFIG_PACKAGE_kmod-netlink-diag=y
 CONFIG_PACKAGE_kmod-wireguard=y
 # CONFIG_PACKAGE_luci-app-eqos-mtk is not set
 CONFIG_PACKAGE_luci-app-mtwifi-cfg=y
