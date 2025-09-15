@@ -8,6 +8,7 @@ uci set dropbear.@dropbear[0].Interface=''
 
 uci commit
 
+sed -i '/helloworld/d' /etc/opkg/distfeeds.conf
 sed -i '/passwall/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
 cp /etc/my-clash /etc/openclash/core/clash_meta
