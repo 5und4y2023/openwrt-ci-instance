@@ -10,7 +10,6 @@ env:
   CONFIG_FILE: config/hanwckf-mt7981
   DIY_SCRIPT: script/hanwckf-mt798x.sh
   CLASH_KERNEL: amd64
-  SSH_ACTIONS: false
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   UPLOAD_ARTIFACT: true
