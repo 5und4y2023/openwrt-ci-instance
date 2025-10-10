@@ -48,7 +48,7 @@ git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/lu
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
 
 git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist2
-git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/luci-app-lucky
+#不兼容luci-21.02git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/luci-app-lucky
 git clone --depth 1 https://github.com/destan19/OpenAppFilter.git package/oaf
 git clone --depth 1 https://github.com/sirpdboy/luci-app-netspeedtest.git package/luci-app-netspeedtest
 #git clone --depth 1 https://github.com/kiddin9/kwrt-packages.git package/kwrt-packages
@@ -62,10 +62,12 @@ mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
 mv package/small-package/adguardhome feeds/packages/net/adguardhome
 mv package/small-package/luci-app-easymesh package/luci-app-easymesh
 mv package/small-package/luci-app-gecoosac package/luci-app-gecoosac
-mv package/small-package/luci-app-smartdns package/luci-app-tailscale
-mv package/small-package/smartdns feeds/packages/net/tailscale
+mv package/small-package/luci-app-lucky package/luci-app-lucky
+mv package/small-package/lucky package/lucky
 mv package/small-package/luci-app-smartdns package/luci-app-smartdns
 mv package/small-package/smartdns feeds/packages/net/smartdns
+mv package/small-package/luci-app-tailscale package/luci-app-tailscale
+mv package/small-package/tailscale feeds/packages/net/tailscale
 mv package/small-package/luci-app-ikoolproxy package/luci-app-ikoolproxy
 rm -rf package/small-package
 
