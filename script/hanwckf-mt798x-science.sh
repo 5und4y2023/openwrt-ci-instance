@@ -19,7 +19,6 @@ sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-stat
 #添加编译日期
 sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/usr/lib/os-release
 sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/etc/openwrt_release
-#mv $GITHUB_WORKSPACE/patch/hanwckf/xm-10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
 
 #改大闪存
@@ -48,10 +47,13 @@ git clone --depth 1 https://github.com/vernesong/OpenClash.git  package/openclas
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
 
-
-#git clone --depth=1 https://github.com/gdy666/luci-app-lucky.git package/luci-app-lucky
+git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist2
+git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/luci-app-lucky
 git clone --depth 1 https://github.com/destan19/OpenAppFilter.git package/oaf
 git clone --depth 1 https://github.com/sirpdboy/luci-app-netspeedtest.git package/luci-app-netspeedtest
+#git clone --depth 1 https://github.com/kiddin9/kwrt-packages.git package/kwrt-packages
+#mv package/kwrt-packages/luci-app-pushbot package/luci-app-pushbot
+#rm -rf package/kwrt-packages
 
 rm -rf feeds/packages/net/{adguardhome,smartdns,tailscale}
 rm -rf feeds/luci/applications/{luci-app-alist,luci-app-smartdns}
@@ -84,7 +86,7 @@ git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/luci package
 mv package/imm24luci/applications/luci-app-frpc package/luci-app-frpc
 rm -rf package/imm24luci
 
-#git clone --depth 1 https://github.com/coolsnowwolf/lede.git package/lede
-#mv package/lede/package/lean/luci-app-leigod-acc package/luci-app-leigod-acc
-#mv package/lede/package/lean/leigod-acc package/leigod-acc
-#rm -rf package/lede
+git clone --depth 1 https://github.com/coolsnowwolf/lede.git package/lede
+mv package/lede/package/lean/luci-app-leigod-acc package/luci-app-leigod-acc
+mv package/lede/package/lean/leigod-acc package/leigod-acc
+rm -rf package/lede
