@@ -39,7 +39,7 @@ mv package/nas-packages/network/services/* package/nas-packages/
 rm -rf package/nas-packages/network
 
 git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/packages package/imm24pkg
-mv package/imm24pkg/lang/rust package/rust
+mv package/imm24pkg/lang/rust feeds/packages/lang/rust
 rm -rf package/imm24pkg
 # git clone --depth=1 https://github.com/mingxiaoyu/luci-app-phtunnel.git package/phtunnel
 git clone --depth 1 https://github.com/timsaya/openwrt-bandix.git package/bandix
