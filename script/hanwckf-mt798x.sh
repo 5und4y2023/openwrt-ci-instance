@@ -38,8 +38,9 @@ rm -rf package/nas-packages/network
 
 #adguardhome，alist,frc,需要go版本需要最新的
 # git clone --depth=1 https://github.com/mingxiaoyu/luci-app-phtunnel.git package/phtunnel
-git clone --depth=1 https://github.com/gdy666/luci-app-lucky.git package/luci-app-lucky
-git clone --depth=1 https://github.com/kenzok8/small-package.git package/small-package
+git clone --depth 1 https://github.com/timsaya/openwrt-bandix.git package/bandix
+git clone --depth 1 https://github.com/timsaya/luci-app-bandix.git package/luci-app-bandix
+git clone --depth 1 https://github.com/kenzok8/small-package.git package/small-package
 mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
 mv package/small-package/luci-app-ikoolproxy package/luci-app-ikoolproxy
 mv package/small-package/luci-app-easymesh package/luci-app-easymesh
