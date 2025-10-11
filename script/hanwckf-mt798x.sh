@@ -38,10 +38,14 @@ git clone --depth=1 -b main https://github.com/linkease/nas-packages-luci.git pa
 mv package/nas-packages/network/services/* package/nas-packages/
 rm -rf package/nas-packages/network
 
-#adguardhome，alist,frc,需要go版本需要最新的
+git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/packages package/imm24pkg
+mv package/imm24pkg/lang/rust package/rust
+rm -rf package/imm24pkg
 # git clone --depth=1 https://github.com/mingxiaoyu/luci-app-phtunnel.git package/phtunnel
 git clone --depth 1 https://github.com/timsaya/openwrt-bandix.git package/bandix
 git clone --depth 1 https://github.com/timsaya/luci-app-bandix.git package/luci-app-bandix
+
+#adguardhome，alist,frc,需要go版本需要最新的
 git clone --depth 1 https://github.com/kenzok8/small-package.git package/small-package
 mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
 mv package/small-package/luci-app-ikoolproxy package/luci-app-ikoolproxy
