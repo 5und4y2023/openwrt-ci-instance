@@ -51,8 +51,14 @@ git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/vernesong/OpenClash.git  package/openclash
 # git clone --depth 1 https://github.com/fw876/helloworld.git package/helloworld
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
+#git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+#git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
+
+git clone --depth 1 -b main https://github.com/kiddin9/kwrt-packages.git package/kwrt-pkg
+mv package/kwrt-pkg/luci-app-passwall package/luci-app-passwall
+mv package/kwrt-pkg/luci-app-passwall2 package/luci-app-passwall2
+#sed -i 's#../../luci.mk#$(TOPDIR)/feeds/luci/luci.mk#g' package/luci-app-arpbind/Makefile
+rm -rf package/kwrt-pkg
 
 git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist2
 #不兼容luci-21.02git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/luci-app-lucky
