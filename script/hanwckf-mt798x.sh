@@ -8,10 +8,17 @@ mv $GITHUB_WORKSPACE/patch/hanwckf/mtwifi.sh package/mtk/applications/mtwifi-cfg
 mv $GITHUB_WORKSPACE/patch/hanwckf/199-diy.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
 
 if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
-    git clone --depth 1 -b core https://github.com/vernesong/OpenClash.git  package/openclash-core
-    tar -zxf package/openclash-core/master/meta/clash-linux-arm64.tar.gz -C package/base-files/files/etc/
-    mv package/base-files/files/etc/clash package/base-files/files/etc/my-clash
-    rm -rf package/openclash-core
+    echo "✅ 已选择 luci-app-openclash，添加 openclash core"
+    mkdir -p files/etc/openclash/core
+    # Download clash_meta
+    META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
+    wget -qO- $META_URL | tar xOz > files/etc/openclash/core/clash_meta
+    chmod +x files/etc/openclash/core/clash_meta
+    # Download GeoIP and GeoSite
+    # wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -O files/etc/openclash/GeoIP.dat
+    # wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -O files/etc/openclash/GeoSite.dat
+else
+    echo "⚪️ 未选择 luci-app-openclash"
 fi
 
 #完全删除luci版本
