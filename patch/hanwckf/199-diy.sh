@@ -19,7 +19,7 @@ uci del dhcp.lan.ra_flags
 uci add_list dhcp.lan.ra_flags='none'
 uci del network.globals.ula_prefix
 
-uci set network.lan.ipaddr=192.168.5.1
+#uci set network.lan.ipaddr=192.168.5.1
 uci commit dhcp
 uci commit network
 
