@@ -21,8 +21,8 @@ uci add_list dhcp.lan.ra_flags='none'
 uci del network.globals.ula_prefix
 
 #uci set network.lan.ipaddr=192.168.5.1
-#uci commit dhcp
-#uci commit network
+uci commit dhcp
+uci commit network
 
 #uci set wireless.default_MT7981_1_1.ssid=OpenWrt-2.4G
 #uci set wireless.default_MT7981_1_1.encryption=psk2+ccmp
