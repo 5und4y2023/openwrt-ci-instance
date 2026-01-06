@@ -51,9 +51,9 @@ git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/vernesong/OpenClash.git  package/openclash
 # git clone --depth 1 https://github.com/fw876/helloworld.git package/helloworld
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git^9feb8ca7dbc14f281fdbc7f8044839f6c2bf56ec package/2-passwall-packages
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall.git package/luci-app-passwall
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall2.git package/luci-app-passwall2
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git^9feb8ca7dbc14f281fdbc7f8044839f6c2bf56ec package/2-passwall-packages
 rm -rf feeds/passwall_packages/microsocks 
 mv package/2-passwall-packages/microsocks feeds/passwall_packages/microsocks 
 rm -rf package/2-passwall-packages
