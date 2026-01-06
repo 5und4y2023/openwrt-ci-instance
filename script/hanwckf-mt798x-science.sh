@@ -53,10 +53,10 @@ git clone --depth 1 https://github.com/vernesong/OpenClash.git  package/openclas
 # git clone --depth 1 https://github.com/fw876/helloworld.git package/helloworld
 git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall.git package/luci-app-passwall
 git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall2.git package/luci-app-passwall2
-git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git^9feb8ca7dbc14f281fdbc7f8044839f6c2bf56ec package/2-passwall-packages
-rm -rf feeds/passwall_packages/microsocks 
-mv package/2-passwall-packages/microsocks feeds/passwall_packages/microsocks 
-rm -rf package/2-passwall-packages
+#git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git^9feb8ca7dbc14f281fdbc7f8044839f6c2bf56ec package/2-passwall-packages
+#rm -rf feeds/passwall_packages/microsocks 
+#mv package/2-passwall-packages/microsocks feeds/passwall_packages/microsocks 
+#rm -rf package/2-passwall-packages
 
 #git clone --depth 1 -b main https://github.com/kiddin9/kwrt-packages.git package/kwrt-pkg
 #mv package/kwrt-pkg/luci-app-passwall package/luci-app-passwall
