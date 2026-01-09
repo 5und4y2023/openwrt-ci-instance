@@ -12,8 +12,8 @@ env:
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
-  UPLOAD_ARTIFACT: true
-  FIRMWARE_RELEASE: false
+  UPLOAD_ARTIFACT: false
+  FIRMWARE_RELEASE: true
   FIRMWARE_TAG: hanwckf-mt798x-science
   TZ: Asia/Shanghai
 
