@@ -52,10 +52,10 @@ git clone --depth 1 -b js https://github.com/sirpdboy/luci-app-netspeedtest.git 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot.git package/luci-app-pushbot
 git clone --depth 1 https://github.com/AngelaCooljx/luci-theme-material3.git package/luci-theme-material3
 
-#rm -rf feeds/packages/net/{adguardhome,alist,tailscale}
+rm -rf feeds/packages/net/{adguardhome,alist,tailscale}
 git clone --depth 1 https://github.com/kenzok8/small-package.git package/small-package
-#mv package/small-package/adguardhome feeds/packages/net/adguardhome
-#mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
+mv package/small-package/adguardhome package/adguardhome
+mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
 mv package/small-package/luci-app-guest-wifi package/luci-app-guest-wifi
 mv package/small-package/luci-app-ikoolproxy package/luci-app-ikoolproxy
 #mv package/small-package/tailscale package/tailscale
@@ -72,9 +72,9 @@ rm -rf package/small-package
 #rm -rf feeds/luci/protocols/luci-proto-quectel
 
 # iStore
-git clone --depth 1 -b main https://github.com/linkease/istore.git package/istore
-git clone --depth 1 -b master https://github.com/linkease/nas-packages.git package/nas-packages
-git clone --depth 1 -b main https://github.com/linkease/nas-packages-luci.git package/nas-luci
+git clone --depth 1 https://github.com/linkease/istore.git package/istore
+git clone --depth 1 https://github.com/linkease/nas-packages.git package/nas-packages
+git clone --depth 1 https://github.com/linkease/nas-packages-luci.git package/nas-luci
 mv package/nas-packages/network/services/* package/nas-packages/
 rm -rf package/nas-packages/network
 
