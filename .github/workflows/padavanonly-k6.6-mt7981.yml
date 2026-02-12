@@ -7,7 +7,7 @@ on:
 env:
   REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6.git
   REPO_BRANCH: openwrt-24.10-6.6
-  CONFIG_FILE: config/padavanonly-k6.6-mt7981-2
+  CONFIG_FILE: config/padavanonly-k6.6-mt7981
   DIY_SCRIPT: script/padavanonly-k6.6-mt798x.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
