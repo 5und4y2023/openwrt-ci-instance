@@ -77,6 +77,8 @@ git clone --depth 1 https://github.com/kenzok8/small-package.git package/small-p
 mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
 mv package/small-package/adguardhome feeds/packages/net/adguardhome
 mv package/small-package/luci-app-easymesh package/luci-app-easymesh
+mv package/small-package/luci-app-easytier package/luci-app-easytier
+mv package/small-package/easytier package/easytier
 mv package/small-package/luci-app-gecoosac package/luci-app-gecoosac
 mv package/small-package/luci-app-lucky package/luci-app-lucky
 mv package/small-package/lucky package/lucky
