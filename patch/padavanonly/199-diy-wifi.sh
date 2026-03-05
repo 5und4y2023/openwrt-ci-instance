@@ -1,0 +1,104 @@
+#!/bin/sh
+
+# 设置所有网口可访问网页终端
+uci delete ttyd.@ttyd[0].interface
+
+# 设置所有网口可连接 SSH
+uci set dropbear.@dropbear[0].Interface=''
+uci set luci.main.lang='zh_cn'
+
+uci commit
+
+uci del network.wan6
+uci del network.lan.ip6assign
+uci del dhcp.lan.ra
+uci del dhcp.lan.ra_slaac
+uci del dhcp.lan.dns_service
+uci del dhcp.lan.dhcpv6
+uci del dhcp.lan.ndp
+uci del dhcp.lan.ra_flags
+uci add_list dhcp.lan.ra_flags='none'
+uci del network.globals.ula_prefix
+
+uci commit dhcp
+uci commit network
+uci commit
+
+###################################################################################
+uci add firewall zone
+uci set firewall.@zone[-1].name="proxy"
+uci set firewall.@zone[-1].input='ACCEPT'
+uci set firewall.@zone[-1].output='ACCEPT'
+uci set firewall.@zone[-1].forward='ACCEPT'
+
+uci add firewall forwarding
+uci set firewall.@forwarding[-1].src="proxy"
+uci set firewall.@forwarding[-1].dest='wan'
+    
+uci add firewall rule
+uci set firewall.@rule[-1].src="proxy"
+uci set firewall.@rule[-1].dest='wan'
+uci set firewall.@rule[-1].name="ban-local"
+uci add_list firewall.@rule[-1].proto='all'
+uci set firewall.@rule[-1].target='REJECT'
+
+num=30
+wifipassword=password
+ipc=1
+router_cpu=MT7981
+# 生成配置
+for i in $(seq 1 $num); do
+    wifinet_num=$((i + 1))
+    new_c=$((ipc + i -1))
+    ipaddr="10.10.${new_c}.1"
+    wifi_id=$(printf "%02d" $i)
+
+    # 根据序号选择wireless设备
+    if [ $i -le 15 ]; then
+        wireless_dev="${router_cpu}_1_2"
+        network_dev="rax${i}"
+    else
+        wireless_dev="${router_cpu}_1_1"
+        network_dev="ra$((i - 15))"
+    fi
+
+    # 配置无线接口
+    uci set wireless.wifinet${wifinet_num}=wifi-iface
+    uci set wireless.wifinet${wifinet_num}.device="$wireless_dev"
+    uci set wireless.wifinet${wifinet_num}.mode='ap'
+    uci set wireless.wifinet${wifinet_num}.ssid="TikTok-${wifi_id}"
+    uci set wireless.wifinet${wifinet_num}.encryption='psk2+ccmp'
+    uci set wireless.wifinet${wifinet_num}.key="$wifipassword"
+    # uci set wireless.wifinet${wifinet_num}.ifname="ap${i}"
+    uci set wireless.wifinet${wifinet_num}.network="wifi${wifi_id}"
+
+    # 配置网络接口
+    uci set network.wifi${wifi_id}=interface
+    uci set network.wifi${wifi_id}.proto='static'
+    uci set network.wifi${wifi_id}.device="${network_dev}"
+    uci set network.wifi${wifi_id}.ipaddr="$ipaddr"
+    uci set network.wifi${wifi_id}.netmask='255.255.255.0'
+
+    # 配置DHCP
+    uci set dhcp.wifi${wifi_id}=dhcp
+    uci set dhcp.wifi${wifi_id}.interface="wifi${wifi_id}"
+
+    uci add_list firewall.@zone[-1].network="wifi${wifi_id}"
+done
+
+
+
+# 提交配置
+uci commit wireless
+uci commit network
+uci commit dhcp
+uci commit firewall
+####################################################################################################
+
+
+/etc/init.d/network restart >/dev/null 2>&1
+/etc/init.d/firewall restart >/dev/null 2>&1
+/etc/init.d/dnsmasq restart >/dev/null 2>&1
+/etc/init.d/dropbear restart >/dev/null 2>&1
+
+exit 0
