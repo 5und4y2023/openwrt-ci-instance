@@ -9,7 +9,7 @@ uci set dropbear.@dropbear[0].Interface=''
 #uci set luci.main.mediaurlbase=/luci-static/argon
 #uci commit luci
 
-uci set network.lan.ipaddr='192.168.6.1'
+#uci set network.lan.ipaddr='192.168.6.1'
 uci set network.lan.ip6assign=64
 uci del network.globals.ula_prefix
 uci set dhcp.lan.dns_service='0'
@@ -39,7 +39,8 @@ uci commit
 sed -i '/passwall/d' /etc/opkg/distfeeds.conf
 sed -i '/Modem/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
-#sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
+#sed -i 's#downloads.immortalwrt.org#mirrors.vsean.net/openwrt#g' /etc/opkg/distfeeds.conf
+sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/openwrt#g' /etc/opkg/distfeeds.conf
 sed -i 's/immortalwrt/openwrt/g' /etc/opkg/distfeeds.conf
 sed -i '/filogic/d' /etc/opkg/distfeeds.conf
 sed -i '$a src/gz openwrt_core https://mirrors.pku.edu.cn/immortalwrt/releases/24.10-SNAPSHOT/targets/mediatek/filogic/packages' /etc/opkg/distfeeds.conf
