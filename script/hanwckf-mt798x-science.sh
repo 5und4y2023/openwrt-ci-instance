@@ -41,7 +41,11 @@ sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/etc/
 
 # 添加kenzok8_small插件库, 编译新版Sing-box和hysteria，需golang版本1.20或者以上版本 ，可以用以下命令
 rm -rf feeds/packages/lang/golang
-git clone --depth 1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/packages package/imm24pkg
+mv package/imm24pkg/lang/rust  package/rust
+rm -rf package/imm24pkg
+
 
 rm -rf feeds/packages/net/{mosdns,v2ray-geodata}
 rm -rf feeds/luci/applications/{luci-app-openclash,luci-app-passwall,luci-app-ssr-plus,luci-app-mosdns}
@@ -53,10 +57,7 @@ git clone --depth 1 https://github.com/vernesong/OpenClash.git  package/openclas
 # git clone --depth 1 https://github.com/fw876/helloworld.git package/helloworld
 git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall.git package/luci-app-passwall
 git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall2.git package/luci-app-passwall2
-#git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git^9feb8ca7dbc14f281fdbc7f8044839f6c2bf56ec package/2-passwall-packages
-#rm -rf feeds/passwall_packages/microsocks 
-#mv package/2-passwall-packages/microsocks feeds/passwall_packages/microsocks 
-#rm -rf package/2-passwall-packages
+
 
 #git clone --depth 1 -b main https://github.com/kiddin9/kwrt-packages.git package/kwrt-pkg
 #mv package/kwrt-pkg/luci-app-passwall package/luci-app-passwall
@@ -100,16 +101,6 @@ rm -rf package/nas-packages/network
 #git clone --depth 1 https://github.com/xiangfeidexiaohuo/extra-ipk.git package/extra-ipk
 #mv package/extra-ipk/linkease package/linkease
 #rm -rf package/extra-ipk
-
-rm -rf feeds/packages/net/frp
-git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/packages package/imm24pkg
-mv package/imm24pkg/net/frp feeds/packages/net/frp
-rm -rf package/imm24pkg
-
-rm -rf feeds/luci/applications/luci-app-frpc
-git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/luci package/imm24luci
-mv package/imm24luci/applications/luci-app-frpc feeds/luci/applications/luci-app-frpc
-rm -rf package/imm24luci
 
 git clone --depth 1 https://github.com/coolsnowwolf/lede.git package/lede
 mv package/lede/package/lean/luci-app-leigod-acc package/luci-app-leigod-acc
