@@ -39,8 +39,8 @@ sed -i '/ssrp/d' /etc/opkg/distfeeds.conf
 sed -i '/helloworld/d' /etc/opkg/distfeeds.conf
 sed -i '/passwall/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
-sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
-sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+sed -i 's/root::0:0:99999:7:::/root:$1$P.dQe2I4$BO.thcMA9OYlt8R8ECnnx1:0:0:99999:7:::/g' /etc/shadow
+sed -i 's/root:::0:99999:7:::/root:$1$P.dQe2I4$BO.thcMA9OYlt8R8ECnnx1:0:0:99999:7:::/g' /etc/shadow
 
 
 /etc/init.d/network restart
