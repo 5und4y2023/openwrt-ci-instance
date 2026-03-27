@@ -27,7 +27,7 @@ fi
 
 # 4. 处理MAC地址：去掉冒号并转大写
 FRPNAME=$(echo "$FRPMAC" | tr -d ':' | tr 'a-f' 'A-F')
-#WIFINAME=$(echo "$MAC2" | grep -o '.\{4\}$')
+WIFINAME=$(echo "FRPNAME" | grep -o '.\{4\}$')
 
 #echo "处理后MAC: $FRPNAME"
 
@@ -92,11 +92,8 @@ uci commit network
 
 #uci set wireless.default_MT7981_1_1.ssid=WiFi-$(ip link show br-lan | awk '/link\/ether/ {print $2}'|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-2.4G
 
-#uci set wireless.default_MT7981_1_1.ssid=WiFi-${WIFINAME}-2.4G
-#uci set wireless.default_MT7981_1_2.ssid=WiFi-${WIFINAME}-5G
-
-uci set wireless.default_MT7981_1_1.ssid=WiFi-2.4G
-uci set wireless.default_MT7981_1_2.ssid=WiFi-5G
+uci set wireless.default_MT7981_1_1.ssid=WiFi-${WIFINAME}-2.4G
+uci set wireless.default_MT7981_1_2.ssid=WiFi-${WIFINAME}-5G
 
 uci set wireless.default_MT7981_1_1.encryption=psk2+ccmp
 uci set wireless.default_MT7981_1_1.key=1234qwer+-
