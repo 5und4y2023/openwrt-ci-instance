@@ -27,7 +27,7 @@ fi
 
 # 4. 处理MAC地址：去掉冒号并转大写
 FRPNAME=$(echo "$FRPMAC" | tr -d ':' | tr 'a-f' 'A-F')
-WIFINAME=$(echo "FRPNAME" | grep -o '.\{4\}$')
+WIFINAME=$(echo "$FRPNAME" | grep -o '.\{4\}$')
 
 #echo "处理后MAC: $FRPNAME"
 
