@@ -5,6 +5,7 @@ sed -i "s/192\.168\.[0-9]*\.[0-9]*/10.1.1.1/g" $(find ./feeds/luci/modules/luci-
 #mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 #mv $GITHUB_WORKSPACE/patch/hanwckf/mtwifi.sh package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 mv $GITHUB_WORKSPACE/patch/hanwckf/199-diy.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
+mv $GITHUB_WORKSPACE/patch/hanwckf/frpc.sh package/base-files/files/etc/uci-defaults/zz-frpc.sh
 
 if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
     echo "✅ 已选择 luci-app-openclash，添加 openclash core"
@@ -47,12 +48,10 @@ rm -rf package/nas-packages/network
 #git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/packages package/imm24pkg
 #mv package/imm24pkg/lang/rust  package/rust
 #rm -rf package/imm24pkg
-# git clone --depth=1 https://github.com/mingxiaoyu/luci-app-phtunnel.git package/phtunnel
-git clone --depth 1 https://github.com/timsaya/openwrt-bandix.git package/bandix
-git clone --depth 1 https://github.com/timsaya/luci-app-bandix.git package/luci-app-bandix
+
 
 #adguardhome，alist,frc,需要go版本需要最新的
-git clone --depth 1 https://github.com/kenzok8/small-package.git package/small-package
+git clone --depth 1 https://github.com/kenzok8/jell.git package/small-package
 mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
 mv package/small-package/luci-app-ikoolproxy package/luci-app-ikoolproxy
 mv package/small-package/luci-app-easymesh package/luci-app-easymesh
