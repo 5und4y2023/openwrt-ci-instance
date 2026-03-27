@@ -295,13 +295,11 @@ CONFIG_PACKAGE_luci-app-ttyd=y
 # CONFIG_PACKAGE_luci-app-ksmbd is not set
 # CONFIG_PACKAGE_luci-app-samba4 is not set
 
-CONFIG_PACKAGE_usbmuxd=n
-CONFIG_PACKAGE_usbutils=n
-CONFIG_PACKAGE_libimobiledevice=n
 CONFIG_PACKAGE_kmod-usb-net-rndis=n
 CONFIG_PACKAGE_kmod-usb-storage=n
 CONFIG_PACKAGE_kmod-usb-storage-extras=n
 CONFIG_PACKAGE_kmod-usb3=n
+CONFIG_PACKAGE_frpc=y
 
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-passwall=y
