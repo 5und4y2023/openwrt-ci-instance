@@ -14,7 +14,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_ARTIFACT: true
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: hanwckf-mt798x-frpc
+  FIRMWARE_TAG: hanwckf-mt798x
   TZ: Asia/Shanghai
 
 jobs:
