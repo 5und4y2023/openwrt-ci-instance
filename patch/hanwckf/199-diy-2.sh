@@ -92,16 +92,16 @@ uci commit network
 
 #uci set wireless.default_MT7981_1_1.ssid=WiFi-$(ip link show br-lan | awk '/link\/ether/ {print $2}'|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-2.4G
 
-uci set wireless.default_MT7981_1_1.ssid=WiFi-${WIFINAME}-2.4G
-uci set wireless.default_MT7981_1_2.ssid=WiFi-${WIFINAME}-5G
+uci set wireless.default_MT7986_1_1.ssid=WiFi-${WIFINAME}-2.4G
+uci set wireless.default_MT7986_1_2.ssid=WiFi-${WIFINAME}-5G
 
-uci set wireless.default_MT7981_1_1.encryption=psk2+ccmp
-uci set wireless.default_MT7981_1_1.key=1234qwer+-
-uci set wireless.MT7981_1_1.htmode='HE20'
-uci set wireless.default_MT7981_1_2.encryption=psk2+ccmp
-uci set wireless.default_MT7981_1_2.key=1234qwer+-
-uci set wireless.MT7981_1_2.htmode='HE80'
-uci set wireless.MT7981_1_2.channel='44'
+uci set wireless.default_MT7986_1_1.encryption=psk2+ccmp
+uci set wireless.default_MT7986_1_1.key=1234qwer+-
+uci set wireless.MT7986_1_1.htmode='HE20'
+uci set wireless.default_MT7986_1_2.encryption=psk2+ccmp
+uci set wireless.default_MT7986_1_2.key=1234qwer+-
+uci set wireless.MT7986_1_2.htmode='HE80'
+uci set wireless.MT7986_1_2.channel='44'
 uci commit wireless
 
 uci commit
