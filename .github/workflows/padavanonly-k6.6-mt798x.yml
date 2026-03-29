@@ -1,4 +1,4 @@
-name: padavanonly-k6.6-mt7981
+name: padavanonly-k6.6-mt798x
 # 脚本参考github/haiibo
 # Add a button to trigger the workflow
 on: 
@@ -7,7 +7,7 @@ on:
 env:
   REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6.git
   REPO_BRANCH: openwrt-24.10-6.6
-  CONFIG_FILE: config/padavanonly-k6.6-mt7981
+  CONFIG_FILE: config/padavanonly-k6.6-mt7986
   DIY_SCRIPT: script/padavanonly-k6.6-mt798x.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
@@ -19,7 +19,7 @@ env:
 
 jobs:
   Build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
     - name: Check Server Performance(检查服务器性能)
@@ -88,7 +88,7 @@ jobs:
       uses: HiGarfield/cachewrtbuild@main
       with:
         ccache: false
-        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.SOURCE_AUTHOR }}-mt7981
+        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.SOURCE_AUTHOR }}-mt798x
         prefix: ${{ env.OPENWRT_PATH }}
     
     - name: Install Feeds(安装feeds)
@@ -96,7 +96,7 @@ jobs:
         cd $OPENWRT_PATH
         sed -i '1i src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git' feeds.conf.default
         #sed -i '1i src-git 5G_Modem https://github.com/Siriling/5G-Modem-Support.git' feeds.conf.default
-        sed -i '1i src-git QModem https://github.com/FUjr/QModem.git' feeds.conf.default
+        #sed -i '1i src-git QModem https://github.com/FUjr/QModem.git' feeds.conf.default
         rm -rf package/mtk/applications/5g-modem
         ./scripts/feeds update -a
         ./scripts/feeds install -a
@@ -178,7 +178,7 @@ jobs:
           ### 📒 固件信息
           - ⚽ 固件源码: ${{ env.REPO_URL }}
           - 💝 源码分支: ${{ env.REPO_BRANCH }}
-          - 🌐 默认地址: 192.168.23.1
+          - 🌐 默认地址: 10.1.1.1
           - 🔑 默认密码: 无
           ### 🧊 固件版本
           - 固件编译前最后一次➦[主源码](${{ env.REPO_URL }})更新记录
