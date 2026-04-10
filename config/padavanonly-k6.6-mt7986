@@ -284,16 +284,21 @@ CONFIG_first_card_name="MT7986"
 # CONFIG_MTK_SNIFFER_RADIOTAP_SUPPORT is not set
 
 
+# CONFIG_PACKAGE_luci-theme-bootstrap-mod is not set
+CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-eqos-mtk=y
 CONFIG_PACKAGE_luci-app-mtwifi-cfg=y
 CONFIG_PACKAGE_luci-app-turboacc-mtk=y
-CONFIG_PACKAGE_luci-app-wrtbwmon=n
-CONFIG_PACKAGE_luci-i18n-mtwifi-cfg-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-turboacc-mtk-zh-cn=y 
-CONFIG_PACKAGE_luci-theme-bootstrap-mod=n
-# CONFIG_PACKAGE_luci-app-usb-printer is not set
-# CONFIG_PACKAGE_luci-app-samba4 is not set
+CONFIG_PACKAGE_luci-app-upnp-mtk-adjust=y
+# CONFIG_PACKAGE_luci-app-filetransfer is not set
+# CONFIG_PACKAGE_luci-app-usbmodem is not set
 # CONFIG_PACKAGE_luci-app-ksmbd is not set
+# CONFIG_PACKAGE_luci-app-samba4 is not set
+# CONFIG_PACKAGE_luci-app-usb-printer is not set
+# CONFIG_PACKAGE_luci-app-wrtbwmon is not set
+# CONFIG_DEFAULT_autoksmbd is not set
+# CONFIG_DEFAULT_ksmbd-utils is not set
+# CONFIG_DEFAULT_luci-app-ksmbd is not set
 
 CONFIG_PACKAGE_luci-app-autoreboot=y
 CONFIG_PACKAGE_luci-app-ramfree=y
@@ -313,10 +318,10 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadow_TLS is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs is not set
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=n
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_tuic_client is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Geodata is not set
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin is not set
-CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin is not set
