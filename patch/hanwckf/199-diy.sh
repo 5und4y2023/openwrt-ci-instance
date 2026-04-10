@@ -23,15 +23,8 @@ uci set network.lan.ip6ifaceid='random'
 
 #uci set network.lan.ipaddr=192.168.140.1
 uci commit dhcp
-uci commit network
-WIFINAME=$(ip link show br-lan 2>/dev/null | awk '/link\/ether/{split($2,m,":");print toupper(m[5]m[6])}')
-uci set wireless.default_MT7986_1_1.ssid=WiFi-${WIFINAME}-2.4G
-uci set wireless.default_MT7986_1_1.encryption=psk2+ccmp
-uci set wireless.default_MT7986_1_1.key=1234qwer+-
-uci set wireless.default_MT7986_1_2.ssid=WiFi-${WIFINAME}-5G
-uci set wireless.default_MT7986_1_2.encryption=psk2+ccmp
-uci set wireless.default_MT7986_1_2.key=1234qwer+-
-uci commit wireless
+#uci commit network
+#uci commit wireless
 
 uci commit
 
