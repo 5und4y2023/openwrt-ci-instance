@@ -67,15 +67,6 @@ uci set frpc.${FRPNAME}_frpweb.remote_port='0'
 uci commit
 /etc/init.d/frpc restart
 
-# 设置所有网口可访问网页终端
-uci delete ttyd.@ttyd[0].interface
-
-# 设置所有网口可连接 SSH
-uci set dropbear.@dropbear[0].Interface=''
-
-uci set luci.main.lang='zh_cn'
-uci commit
-
 uci del dhcp.lan.ra
 uci del dhcp.lan.ra_slaac
 uci del dhcp.lan.dns_service
@@ -90,30 +81,11 @@ uci del network.lan.ip6assign
 uci commit dhcp
 uci commit network
 
-#uci set wireless.default_MT7981_1_1.ssid=WiFi-$(ip link show br-lan | awk '/link\/ether/ {print $2}'|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-2.4G
 
-uci set wireless.default_MT7981_1_1.ssid=WiFi-${WIFINAME}-2.4G
-uci set wireless.default_MT7981_1_2.ssid=WiFi-${WIFINAME}-5G
-
-uci set wireless.default_MT7981_1_1.encryption=psk2+ccmp
-uci set wireless.default_MT7981_1_1.key=1234qwer+-
-uci set wireless.MT7981_1_1.htmode='HE20'
-uci set wireless.default_MT7981_1_2.encryption=psk2+ccmp
-uci set wireless.default_MT7981_1_2.key=1234qwer+-
-uci set wireless.MT7981_1_2.htmode='HE80'
-uci set wireless.MT7981_1_2.channel='44'
-uci commit wireless
-
-uci commit
-
-sed -i '/ssrp/d' /etc/opkg/distfeeds.conf
-sed -i '/helloworld/d' /etc/opkg/distfeeds.conf
-sed -i '/passwall/d' /etc/opkg/distfeeds.conf
-sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
 sed -i 's/root::0:0:99999:7:::/root:$1$ZgX9VyJs$dsQOixMortE8uPxcY65MK0:0:0:99999:7:::/g' /etc/shadow
 sed -i 's/root:::0:99999:7:::/root:$1$ZgX9VyJs$dsQOixMortE8uPxcY65MK0:0:0:99999:7:::/g' /etc/shadow
 
 
-/etc/init.d/network restart
+
 
 exit 0
