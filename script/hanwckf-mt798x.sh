@@ -9,7 +9,10 @@ sed -i "s/192\.168\.[0-9]*\.[0-9]*/10.1.1.1/g" $(find ./feeds/luci/modules/luci-
 sed -i 's/ImmortalWrt/Router/g' package/base-files/files/bin/config_generate
 #mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 #mv $GITHUB_WORKSPACE/patch/hanwckf/mtwifi.sh package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
-mv $GITHUB_WORKSPACE/patch/hanwckf/199-diy-2.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
+mv $GITHUB_WORKSPACE/patch/hanwckf/199-diy.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
+if grep -Eq "frpc=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
+	mv $GITHUB_WORKSPACE/hanwckf/199-frp.sh package/base-files/files/etc/uci-defaults/za.sh
+fi
 
 if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
     echo "✅ 已选择 luci-app-openclash，添加 openclash core"
