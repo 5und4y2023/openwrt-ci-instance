@@ -9,22 +9,25 @@ uci set dropbear.@dropbear[0].Interface=''
 uci set luci.main.lang='zh_cn'
 uci commit
 
-uci del network.wan6
-uci set network.lan.ip6assign=64
-uci del network.globals.ula_prefix
-uci set dhcp.lan.dns_service='0'
-uci del dhcp.lan.dhcpv6
-uci del dhcp.lan.ndp
-uci set dhcp.lan.ra='server'
-uci del dhcp.lan.ra_flags
-uci add_list dhcp.lan.ra_flags='none'
-uci set network.lan.delegate='0'
-uci set network.lan.ip6ifaceid='random'
+router_cpu=MT7981
+uci set wireless.default_${router_cpu}_1_1.ssid=WiFi-${WIFINAME}-2.4G
+uci set wireless.default_${router_cpu}_1_2.ssid=WiFi-${WIFINAME}-5G
+
+uci set wireless.default_${router_cpu}_1_1.encryption=psk2+ccmp
+uci set wireless.default_${router_cpu}_1_1.key=1234qwer+-
+uci set wireless.${router_cpu}_1_1.htmode='HE20'
+uci set wireless.default_${router_cpu}_1_2.encryption=psk2+ccmp
+uci set wireless.default_${router_cpu}_1_2.key=1234qwer+-
+uci set wireless.${router_cpu}_1_2.htmode='HE80'
+uci set wireless.${router_cpu}_1_2.channel='44'
+uci commit wireless
+
+uci commit
 
 #uci set network.lan.ipaddr=192.168.140.1
-uci commit dhcp
+#uci commit dhcp
 #uci commit network
-#uci commit wireless
+uci commit wireless
 
 uci commit
 
