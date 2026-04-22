@@ -10,8 +10,9 @@ sed -i 's/ImmortalWrt/Router/g' package/base-files/files/bin/config_generate
 #mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 #mv $GITHUB_WORKSPACE/patch/hanwckf/mtwifi.sh package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
 mv $GITHUB_WORKSPACE/patch/hanwckf/199-diy.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
+mv $GITHUB_WORKSPACE/patch/hanwckf/199-diy-name.sh package/base-files/files/etc/uci-defaults/za-diy.sh
 if grep -Eq "frpc=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
-	mv $GITHUB_WORKSPACE/hanwckf/199-frp.sh package/base-files/files/etc/uci-defaults/za.sh
+	mv $GITHUB_WORKSPACE/hanwckf/199-frp.sh package/base-files/files/etc/uci-defaults/zb.sh
 fi
 
 if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
