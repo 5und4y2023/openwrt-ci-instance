@@ -12,14 +12,14 @@ uci commit
 router_cpu=MT7981
 uci set wireless.default_${router_cpu}_1_1.ssid=WiFi-${WIFINAME}-2.4G
 uci set wireless.default_${router_cpu}_1_2.ssid=WiFi-${WIFINAME}-5G
-
-uci set wireless.default_${router_cpu}_1_1.encryption=psk2+ccmp
-uci set wireless.default_${router_cpu}_1_1.key=1234qwer+-
 uci set wireless.${router_cpu}_1_1.htmode='HE20'
-uci set wireless.default_${router_cpu}_1_2.encryption=psk2+ccmp
-uci set wireless.default_${router_cpu}_1_2.key=1234qwer+-
 uci set wireless.${router_cpu}_1_2.htmode='HE80'
 uci set wireless.${router_cpu}_1_2.channel='44'
+#uci set wireless.default_${router_cpu}_1_1.encryption=psk2+ccmp
+#uci set wireless.default_${router_cpu}_1_2.encryption=psk2+ccmp
+#uci set wireless.default_${router_cpu}_1_1.key=1234qwer+-
+#uci set wireless.default_${router_cpu}_1_2.key=1234qwer+-
+
 uci commit wireless
 
 uci commit
