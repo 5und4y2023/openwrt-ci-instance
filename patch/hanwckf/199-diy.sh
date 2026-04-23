@@ -25,7 +25,6 @@ if [ -z "$FRPMAC" ]; then
 fi
 
 # 4. 处理MAC地址：去掉冒号并转大写
-FRPNAME=$(echo "$FRPMAC" | tr -d ':' | tr 'a-f' 'A-F')
 WIFINAME=$(echo "$FRPNAME" | grep -o '.\{4\}$')
 
 # 设置所有网口可访问网页终端
