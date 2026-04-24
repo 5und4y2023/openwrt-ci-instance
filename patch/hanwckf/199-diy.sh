@@ -36,7 +36,7 @@ uci set dropbear.@dropbear[0].Interface=''
 uci set luci.main.lang='zh_cn'
 uci commit
 
-router_cpu=MT7981
+router_cpu=MT7986
 uci set wireless.default_${router_cpu}_1_1.ssid=WiFi-${WIFINAME}-2.4G
 uci set wireless.default_${router_cpu}_1_2.ssid=WiFi-${WIFINAME}-5G
 uci set wireless.${router_cpu}_1_1.htmode='HE20'
