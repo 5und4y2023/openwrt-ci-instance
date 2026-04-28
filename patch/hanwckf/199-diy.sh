@@ -47,10 +47,6 @@ uci set wireless.${router_cpu}_1_2.channel='44'
 #uci set wireless.default_${router_cpu}_1_1.key=1234qwer+-
 #uci set wireless.default_${router_cpu}_1_2.key=1234qwer+-
 
-uci commit wireless
-
-uci commit
-
 #uci set network.lan.ipaddr=192.168.140.1
 #uci commit dhcp
 #uci commit network
