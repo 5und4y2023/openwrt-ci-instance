@@ -1,31 +1,31 @@
 #!/bin/sh
 # 提取MAC地址
 # br-lan
-FRPMAC=$(ip link show br-lan | awk '/link\/ether/ {print $2}')
+MYMAC=$(ip link show br-lan | awk '/link\/ether/ {print $2}')
 
-if [ -z "$FRPMAC" ]; then
-    FRPMAC=$(cat /sys/class/net/br-lan/address 2>/dev/null)
+if [ -z "$MYMAC" ]; then
+    MYMAC=$(cat /sys/class/net/br-lan/address 2>/dev/null)
 fi
 
 # eth0 和 wan
-if [ -z "$FRPMAC" ]; then
-    FRPMAC=$(cat /sys/class/net/eth0/address 2>/dev/null)
+if [ -z "$MYMAC" ]; then
+    MYMAC=$(cat /sys/class/net/eth0/address 2>/dev/null)
 fi
-if [ -z "$FRPMAC" ]; then
-    FRPMAC=$(ip link show wan | awk '/link\/ether/ {print $2}')
+if [ -z "$MYMAC" ]; then
+    MYMAC=$(ip link show wan | awk '/link\/ether/ {print $2}')
 fi
 
 
 # 如果还不行，尝试获取第一个有MAC地址的接口
-if [ -z "$FRPMAC" ]; then
+if [ -z "$MYMAC" ]; then
     for iface in /sys/class/net/*/address; do
-        FRPMAC=$(cat "$iface" 2>/dev/null | grep -v "00:00:00:00:00:00" | head -1)
-        [ -n "$FRPMAC" ] && break
+        MYMAC=$(cat "$iface" 2>/dev/null | grep -v "00:00:00:00:00:00" | head -1)
+        [ -n "$MYMAC" ] && break
     done
 fi
 
 # 4. 处理MAC地址：去掉冒号并转大写
-WIFINAME=$(echo "$FRPMAC" | tr -d ':' | tr 'a-f' 'A-F' | grep -o '.\{4\}$')
+WIFINAME=$(echo "$MYMAC" | tr -d ':' | tr 'a-f' 'A-F' | grep -o '.\{4\}$')
 
 # 设置所有网口可访问网页终端
 uci delete ttyd.@ttyd[0].interface
@@ -47,8 +47,7 @@ uci set wireless.${router_cpu}_1_2.channel='44'
 #uci set wireless.default_${router_cpu}_1_1.key=1234qwer+-
 #uci set wireless.default_${router_cpu}_1_2.key=1234qwer+-
 
-#uci set network.lan.ipaddr=192.168.140.1
-#uci commit dhcp
+
 #uci commit network
 uci commit wireless
 
