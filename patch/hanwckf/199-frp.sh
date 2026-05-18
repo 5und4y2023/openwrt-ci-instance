@@ -31,10 +31,10 @@ uci del frpc.ssh
 uci set frpc.common.server_addr='frp.jcmeng.top'
 uci set frpc.common.server_port='40101'
 uci set frpc.common.token='frp2026+-*.'
-#uci set frpc.common.admin_addr='127.0.0.1'
-#uci set frpc.common.admin_port='19698'
-#uci set frpc.common.admin_user='frpc'
-#uci set frpc.common.admin_pwd='1234qwer+-'
+uci set frpc.common.admin_addr='127.0.0.1'
+uci set frpc.common.admin_port='19698'
+uci set frpc.common.admin_user='frpc'
+uci set frpc.common.admin_pwd='1234qwer+-'
 
 uci set frpc.${FRPNAME}_luci=conf
 uci set frpc.${FRPNAME}_luci.type='tcp'
@@ -42,7 +42,7 @@ uci set frpc.${FRPNAME}_luci.use_encryption='true'
 uci set frpc.${FRPNAME}_luci.use_compression='true'
 uci set frpc.${FRPNAME}_luci.local_ip='127.0.0.1'
 uci set frpc.${FRPNAME}_luci.local_port='80'
-uci set frpc.${FRPNAME}_luci.remote_port='41816'
+uci set frpc.${FRPNAME}_luci.remote_port='0'
 
 uci set frpc.${FRPNAME}_clash=conf
 uci set frpc.${FRPNAME}_clash.type='tcp'
@@ -50,15 +50,15 @@ uci set frpc.${FRPNAME}_clash.use_encryption='true'
 uci set frpc.${FRPNAME}_clash.use_compression='true'
 uci set frpc.${FRPNAME}_clash.local_ip='127.0.0.1'
 uci set frpc.${FRPNAME}_clash.local_port='9090'
-uci set frpc.${FRPNAME}_clash.remote_port='42816'
+uci set frpc.${FRPNAME}_clash.remote_port='0'
 
-#uci set frpc.${FRPNAME}_frpweb=conf
-#uci set frpc.${FRPNAME}_frpweb.type='tcp'
-#uci set frpc.${FRPNAME}_frpweb.use_encryption='true'
-#uci set frpc.${FRPNAME}_frpweb.use_compression='true'
-#uci set frpc.${FRPNAME}_frpweb.local_ip='127.0.0.1'
-#uci set frpc.${FRPNAME}_frpweb.local_port='19698'
-#uci set frpc.${FRPNAME}_frpweb.remote_port='43816'
+uci set frpc.${FRPNAME}_frpweb=conf
+uci set frpc.${FRPNAME}_frpweb.type='tcp'
+uci set frpc.${FRPNAME}_frpweb.use_encryption='true'
+uci set frpc.${FRPNAME}_frpweb.use_compression='true'
+uci set frpc.${FRPNAME}_frpweb.local_ip='127.0.0.1'
+uci set frpc.${FRPNAME}_frpweb.local_port='19698'
+uci set frpc.${FRPNAME}_frpweb.remote_port='0'
 
 uci commit
 /etc/init.d/frpc restart
