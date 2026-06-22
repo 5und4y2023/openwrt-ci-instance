@@ -36,16 +36,16 @@ uci set dropbear.@dropbear[0].Interface=''
 uci set luci.main.lang='zh_cn'
 uci commit
 
-router_cpu=MT7981
-uci set wireless.default_${router_cpu}_1_1.ssid=WiFi-${WIFINAME}-2.4G
-uci set wireless.default_${router_cpu}_1_2.ssid=WiFi-${WIFINAME}-5G
-uci set wireless.${router_cpu}_1_1.htmode='HE20'
-uci set wireless.${router_cpu}_1_2.htmode='HE80'
-uci set wireless.${router_cpu}_1_2.channel='44'
-#uci set wireless.default_${router_cpu}_1_1.encryption=psk2+ccmp
-#uci set wireless.default_${router_cpu}_1_2.encryption=psk2+ccmp
-#uci set wireless.default_${router_cpu}_1_1.key=1234qwer+-
-#uci set wireless.default_${router_cpu}_1_2.key=1234qwer+-
+router_cpu=
+uci set wireless.default_MT7981_1_1.ssid=WiFi-${WIFINAME}-2.4G
+uci set wireless.default_MT7981_1_2.ssid=WiFi-${WIFINAME}-5G
+uci set wireless.MT7981_1_1.htmode='HE20'
+uci set wireless.MT7981_1_2.htmode='HE80'
+uci set wireless.MT7981_1_2.channel='44'
+#uci set wireless.default_MT7981_1_1.encryption=psk2+ccmp
+#uci set wireless.default_MT7981_1_2.encryption=psk2+ccmp
+#uci set wireless.default_MT7981_1_1.key=1234qwer+-
+#uci set wireless.default_MT7981_1_2.key=1234qwer+-
 
 
 #uci commit network
