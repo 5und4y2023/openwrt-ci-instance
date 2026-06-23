@@ -42,8 +42,8 @@ sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/usr/
 sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/etc/openwrt_release
 #mv $GITHUB_WORKSPACE/patch/hanwckf/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
-rm -rf feeds/packages/lang/golang
-git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
+#git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 #安装最新openclash
 rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth 1 https://github.com/vernesong/OpenClash.git  package/openclash
