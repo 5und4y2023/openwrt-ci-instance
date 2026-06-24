@@ -21,7 +21,7 @@ else
 fi
 
 # sed -i 's/0x580000 0x7280000/0x580000 0x1cc00000/g' target/linux/mediatek/files-5.4/arch/arm64/boot/dts/mediatek/mt7986a-netcore-n60-pro.dts
-mv $GITHUB_WORKSPACE/patch/padavanonly/libxcrypt-Makefile feeds/packages/libs/libxcrypt/Makefile
+# mv $GITHUB_WORKSPACE/patch/padavanonly/libxcrypt-Makefile feeds/packages/libs/libxcrypt/Makefile
 sed -i 's/ci-llvm=true/ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 
 #完全删除luci版本
@@ -52,7 +52,7 @@ git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot.git package/luc
 git clone --depth 1 https://github.com/AngelaCooljx/luci-theme-material3.git package/luci-theme-material3
 
 rm -rf feeds/packages/net/{adguardhome,alist,tailscale}
-git clone --depth 1 https://github.com/kenzok8/jell.git package/small-package
+git clone --depth 1 https://github.com/kenzok8/small-package.git package/small-package
 mv package/small-package/adguardhome package/adguardhome
 mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
 mv package/small-package/luci-app-guest-wifi package/luci-app-guest-wifi
